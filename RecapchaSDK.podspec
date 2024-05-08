@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = "This spec specifies a vendored framework."
-
+  spec.module_name  = 'RecapchaSDK'
   spec.homepage     = "https://www.vtvlive.vn/"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
@@ -67,7 +67,6 @@ Pod::Spec.new do |spec|
   spec.platform          = :ios
   spec.ios.deployment_target = "12.0"
   #  When using multiple platforms
-  spec.ios.deployment_target = "12.0"
   # spec.osx.deployment_target = "10.7"
   # spec.watchos.deployment_target = "2.0"
   # spec.tvos.deployment_target = "9.0"
@@ -90,13 +89,13 @@ Pod::Spec.new do |spec|
   #  For header files it will include any header in the folder.
   #  Not including the public_header_files will make all headers public.
   #
-  spec.vendored_frameworks = 'RecapchaSDK.xcframework'
   spec.source_files = "**/*.{h,m}"
   # spec.vendored_frameworks = 'RecapchaSDK.xcframework'
   # spec.source_files  = "**/*.h"
   # spec.exclude_files = "Classes/Exclude"
   # spec.public_header_files = "Classes/**/*.h"
-
+  spec.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  spec.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #

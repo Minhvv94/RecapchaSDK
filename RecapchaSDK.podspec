@@ -24,7 +24,6 @@ Pod::Spec.new do |spec|
 
   spec.source       = { :git => "https://github.com/Minhvv94/RecapchaSDK.git", :tag => "1.0.2" }
   #spec.source                       = { :path => "RecapchaSDK.xcframework" }
-  spec.vendored_frameworks = "RecapchaSDK.xcframework"
   spec.preserve_paths               = "*"
 
   spec.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }

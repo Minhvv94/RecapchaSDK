@@ -1,0 +1,11 @@
+framework module RecapchaSdk {
+  umbrella header "RecapchaSdk.h"
+  export *
+
+  module * { export * }
+}
+
+module RecapchaSdk.Swift {
+  header "RecapchaSdk-Swift.h"
+  requires objc
+}

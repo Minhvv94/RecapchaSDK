@@ -1,0 +1,90 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name RecapchaSdk
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+@_exported import RecapchaSdk
+import RxSwift
+import Swift
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public enum ReCaptchaError : Swift.Error, Swift.CustomStringConvertible {
+  case unexpected(any Swift.Error)
+  case htmlLoadError
+  case apiKeyNotFound
+  case baseURLNotFound
+  case wrongMessageFormat
+  case failedSetup
+  case responseExpired
+  case failedRender
+  public var description: Swift.String {
+    get
+  }
+}
+public enum ReCaptchaResult {
+  case token(Swift.String)
+  case error(RecapchaSdk.ReCaptchaError)
+  public func dematerialize() throws -> Swift.String
+}
+@_hasMissingDesignatedInitializers public class ReCaptcha {
+  public enum Endpoint {
+    case `default`
+    case alternate
+    public static func == (a: RecapchaSdk.ReCaptcha.Endpoint, b: RecapchaSdk.ReCaptcha.Endpoint) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  convenience public init(apiKey: Swift.String? = nil, baseURL: Foundation.URL? = nil, endpoint: RecapchaSdk.ReCaptcha.Endpoint = .default, locale: Foundation.Locale? = nil) throws
+  public func validate(on view: UIKit.UIView, resetOnError: Swift.Bool = true, completion: @escaping (RecapchaSdk.ReCaptchaResult) -> Swift.Void)
+  public func stop()
+  public func configureWebView(_ configure: @escaping (WebKit.WKWebView) -> Swift.Void)
+  public func reset()
+  public func didFinishLoading(_ closure: (() -> Swift.Void)?)
+  public func didFinishLoadingStop(status: Swift.Bool)
+  public var forceVisibleChallenge: Swift.Bool {
+    get
+    set
+  }
+  public var shouldSkipForTests: Swift.Bool {
+    get
+    set
+  }
+  @objc deinit
+}
+extension RecapchaSdk.ReCaptcha : RxSwift.ReactiveCompatible {
+  public typealias ReactiveBase = RecapchaSdk.ReCaptcha
+}
+extension RxSwift.Reactive where Base : RecapchaSdk.ReCaptcha {
+  public func validate(on view: UIKit.UIView, resetOnError: Swift.Bool = true) -> RxSwift.Observable<Swift.String>
+  public var reset: RxSwift.AnyObserver<Swift.Void> {
+    get
+  }
+  public var didFinishLoading: RxSwift.Observable<Swift.Void> {
+    get
+  }
+}
+@objc(RecapchaDelegate) public protocol RecapchaDelegate {
+  @objc func recapchaSuccess(token: Swift.String)
+  @objc func recapchaError()
+}
+@_inheritsConvenienceInitializers @objc(SDKRecapcha) public class SDKRecapcha : ObjectiveC.NSObject {
+  public var disposeBag: RxSwift.DisposeBag
+  public var recaptcha: RecapchaSdk.ReCaptcha!
+  public var locale: Foundation.Locale?
+  public var endpoint: RecapchaSdk.ReCaptcha.Endpoint
+  weak public var recapchaDelegate: (any RecapchaSdk.RecapchaDelegate)?
+  @objc override dynamic public init()
+  @objc public func setupDelegate(recapchaDelegate: any RecapchaSdk.RecapchaDelegate)
+  @objc public func configRecapcha(apiKey: Swift.String, baseURL: Swift.String)
+  @objc public func runRecapcha(view: UIKit.UIView)
+  @objc public func setupReCaptcha(viView: UIKit.UIView)
+  @objc public func stopRecapcha()
+  @objc deinit
+}
+extension RecapchaSdk.ReCaptcha.Endpoint : Swift.Equatable {}
+extension RecapchaSdk.ReCaptcha.Endpoint : Swift.Hashable {}

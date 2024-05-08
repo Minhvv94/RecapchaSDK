@@ -79,10 +79,10 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  #spec.source       = { :git => "https://github.com/Minhvv94/RecapchaSDK.git", :tag => "1.0.2" }
+  spec.source       = { :git => "https://github.com/Minhvv94/RecapchaSDK.git", :tag => "1.0.2" }
 
 
-  spec.source                       = { :path => "RecapchaSDK.xcframework" }
+  #spec.source                       = { :path => "RecapchaSDK.xcframework" }
   spec.vendored_frameworks          = "RecapchaSDK.xcframework"
   spec.source_files                 = "RecapchaSDK.xcframework/*/RecapchaSDK.framework/Headers/*.{h,m,swift}"
   spec.preserve_paths               = "*"

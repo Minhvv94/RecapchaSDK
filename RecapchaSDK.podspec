@@ -91,10 +91,10 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.vendored_frameworks = 'RecapchaSDK.xcframework'
-  # spec.source_files  = "*/*.{h,m}"
+  # spec.vendored_frameworks = 'RecapchaSDK.xcframework'
+  spec.source_files  = "RecapchaSDK.framework/Headers/**/*.h"
   # spec.exclude_files = "Classes/Exclude"
-
+  spec.vendored_frameworks = 'RecapchaSDK.framework'
   # spec.public_header_files = "Classes/**/*.h"
 
 

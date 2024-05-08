@@ -116,8 +116,8 @@ Pod::Spec.new do |spec|
   #  the lib prefix of their name.
   #
   spec.requires_arc = true
-  spec.preserve_paths = 'RecapchaSDK.framework'
-  spec.vendored_frameworks = 'RecapchaSDK.framework'
+  spec.preserve_paths = 'Frameworks/RecapchaSDK.framework'
+  spec.vendored_frameworks = 'Frameworks/RecapchaSDK.framework'
   # spec.framework  = "SomeFramework"
   # spec.frameworks = "SomeFramework", "AnotherFramework"
 

@@ -9,7 +9,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "RecapchaSDK"
-  spec.version      = "1.0.3"
+  spec.version      = "1.0.4"
   spec.summary      = "Vendored RecapchaSDK Framework in a spec test pod."
   spec.description  = "This spec specifies a vendored framework."
   spec.module_name  = 'RecapchaSDK'
@@ -22,13 +22,13 @@ Pod::Spec.new do |spec|
   spec.platform          = :ios
   spec.ios.deployment_target = "12.0"
 
-  spec.source       = { :git => "https://github.com/Minhvv94/RecapchaSDK.git", :tag => "1.0.3" }
+  spec.source       = { :git => "https://github.com/Minhvv94/RecapchaSDK.git", :tag => "1.0.4" }
   #spec.source                       = { :path => "RecapchaSDK.xcframework" }
   spec.preserve_paths               = "*"
 
   spec.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   spec.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-  spec.source_files = "**/*.{h,m}"
+  spec.source_files = "**/*.{h,m,swift}"
   spec.requires_arc = true
 
 end

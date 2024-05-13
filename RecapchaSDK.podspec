@@ -9,9 +9,17 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "RecapchaSDK"
-  spec.version      = "1.0.6"
+  spec.version      = "1.0.7"
   spec.summary      = "Vendored RecapchaSDK Framework in a spec test pod."
-  spec.description  = "This spec specifies a vendored framework."
+  spec.description  = <<-DESC
+* UI extensions
+*  pod 'RecapchaSDK'
+* Đây là SDK của vtv live
+
+* Tác giả : Vũ Văn Minh
+
+* Hiện tại chưa biết viết cái méo gì cả nên viiết test vài dòng. ok
+                        DESC
   spec.module_name  = 'RecapchaSDK'
   spec.homepage     = "https://www.vtvlive.vn/"
 
@@ -22,7 +30,7 @@ Pod::Spec.new do |spec|
   spec.platform          = :ios
   spec.ios.deployment_target = "12.0"
 
-  spec.source       = { :git => "https://github.com/Minhvv94/RecapchaSDK.git", :tag => "1.0.6" }
+  spec.source       = { :git => "https://github.com/Minhvv94/RecapchaSDK.git", :tag => "1.0.7" }
   #spec.source                       = { :path => "RecapchaSDK.xcframework" }
   spec.preserve_paths               = "*"
 
@@ -30,6 +38,8 @@ Pod::Spec.new do |spec|
   spec.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   spec.source_files = "**/*.{h,m,swift}" 
   spec.requires_arc = true
+  
   spec.dependency = "RxSwift"
+  spec.pod_target_xcconfig = { 'APPLICATION_EXTENSION_API_ONLY' => 'YES' }
 
 end

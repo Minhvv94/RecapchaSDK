@@ -39,7 +39,7 @@ Pod::Spec.new do |spec|
   spec.source_files = "**/*.{h,m,swift}" 
   spec.requires_arc = true
   
-  spec.dependency = "RxSwift"
+  spec.dependency "RxSwift"
   spec.pod_target_xcconfig = { 'APPLICATION_EXTENSION_API_ONLY' => 'YES' }
 
 end

@@ -9,7 +9,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "RecapchaSDK"
-  spec.version      = "1.0.7"
+  spec.version      = "1.0.8"
   spec.summary      = "Vendored RecapchaSDK Framework in a spec test pod."
   spec.description  = <<-DESC
 * UI extensions
@@ -30,7 +30,7 @@ Pod::Spec.new do |spec|
   spec.platform          = :ios
   spec.ios.deployment_target = "12.0"
 
-  spec.source       = { :git => "https://github.com/Minhvv94/RecapchaSDK.git", :tag => "1.0.7" }
+  spec.source       = { :git => "https://github.com/Minhvv94/RecapchaSDK.git", :tag => "1.0.8" }
   #spec.source                       = { :path => "RecapchaSDK.xcframework" }
   spec.preserve_paths               = "*"
 
@@ -39,7 +39,6 @@ Pod::Spec.new do |spec|
   spec.source_files = "**/*.{h,m,swift}" 
   spec.requires_arc = true
   
-  spec.dependency "RxSwift"
-  spec.pod_target_xcconfig = { 'APPLICATION_EXTENSION_API_ONLY' => 'YES' }
+  spec.dependency 'RxSwift'
 
 end

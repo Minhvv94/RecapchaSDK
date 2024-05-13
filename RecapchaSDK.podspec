@@ -28,7 +28,8 @@ Pod::Spec.new do |spec|
 
   spec.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   spec.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-  spec.source_files = "**/*.{h,m,swift}"
+  spec.source_files = "**/*.{h,m,swift}" 
   spec.requires_arc = true
+  spec.dependency = "RxSwift"
 
 end
